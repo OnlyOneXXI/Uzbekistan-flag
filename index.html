@@ -130,8 +130,8 @@
             // --- ОБРАБОТКА КЛИКОВ ПО РЕГИОНАМ ---
             mainMap.querySelectorAll('path').forEach(path => {
                 path.addEventListener('click', () => {
-                    const regionId = path.id; 
-                    const imagePath = `images/${regionId}.png`;
+                    const regionId = path.id; // Например, 'uz-su'
+                    const imagePath = `https://raw.githubusercontent.com/OnlyOneXXI/Uzbekistan-flag/main/images/${regionId}.png`; 
                     
                     modal.style.display = "block";
                     modalImg.src = imagePath;
