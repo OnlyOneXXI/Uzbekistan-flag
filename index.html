@@ -130,9 +130,7 @@
             // --- ОБРАБОТКА КЛИКОВ ПО РЕГИОНАМ ---
             mainMap.querySelectorAll('path').forEach(path => {
                 path.addEventListener('click', () => {
-                    const regionId = path.id; // Например, 'uz-su'
-                    
-                    // Преобразуем id в верхний регистр для соответствия имени файла (например, 'UZ-SU.png')
+                    const regionId = path.id; 
                     const imageName = regionId.toUpperCase();
                     const imagePath = `images/${imageName}.png`; 
                     
@@ -163,3 +161,4 @@
     </script>
 </body>
 </html>
+
