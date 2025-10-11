@@ -131,8 +131,7 @@
             mainMap.querySelectorAll('path').forEach(path => {
                 path.addEventListener('click', () => {
                     const regionId = path.id; 
-                    const imageName = regionId.toUpperCase();
-                    const imagePath = `images/${imageName}.png`; 
+                    const imagePath = `images/${regionId}.png`;
                     
                     modal.style.display = "block";
                     modalImg.src = imagePath;
@@ -161,4 +160,5 @@
     </script>
 </body>
 </html>
+
 
