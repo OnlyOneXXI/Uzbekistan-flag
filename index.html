@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>"Bir bayroq ostida" Respublika bayroq ESTAFETASI</title>
+    <title>"Bir bayroq ostida" Respublika bayroq estafetasi</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 20px;
-            background-color: #f4f6f9;
+            padding: 5px;
             color: #333;
+
+            background-image: url('https://raw.githubusercontent.com/OnlyOneXXI/Uzbekistan-flag/main/images/background.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .container {
@@ -24,23 +29,26 @@
             gap: 20px;
         }
 
-        /* --- НОВЫЙ СТИЛЬ ДЛЯ ЗАГОЛОВКА H1 --- */
         h1 {
             text-align: center;
+            /* Добавим тень для лучшей читаемости на фоне */
+            color: rgb(255, 255, 255);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         
         .instruction-box {
-            background-color: #fff;
-            padding: 15px;
+            /* --- ИЗМЕНЕНИЕ ФОНА --- */
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый */
+            padding: 8px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
             width: 100%;
-            max-width: 800px;
+            max-width: 950px;
             box-sizing: border-box;
         }
 
-        .instruction-box h3 {
+        .instruction-box h2 {
             color: red;
             margin-top: 0;
             margin-bottom: 10px;
@@ -53,8 +61,9 @@
         .map-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
-            background-color: #fff;
+            max-width: 950px;
+            /* --- ИЗМЕНЕНИЕ ФОНА --- */
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый */
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 20px;
@@ -69,18 +78,17 @@
         }
 
         path {
-            fill: #a2d5f2; /* Стандартный цвет регионов */
+            fill: #264fb6;
             transition: fill 0.3s ease;
             cursor: pointer;
         }
 
         path:hover {
-            fill: #0088cc; /* Цвет при наведении */
+            fill: #418df0;
         }
         
-        /* Стили для всплывающего окна (модал) */
         .modal {
-            display: none; /* Окно скрыто по умолчанию */
+            display: none;
             position: fixed; 
             z-index: 1000;
             left: 0;
@@ -88,7 +96,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.7); /* Полупрозрачный фон */
+            background-color: rgba(0,0,0,0.7);
             padding-top: 50px;
         }
 
@@ -120,11 +128,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>"Bir bayroq ostida" Respublika bayroq<br>ESTAFETASI</h1>
+        <h1>"Bir bayroq ostida" Respublika bayroq<br>estafetasi</h1>
         
         <div class="instruction-box">
-            <h3>Qo'llanma!</h3>
-            <p>Xaritadan foydalanish uchun ma'muriy hududni tanlang</p>
+            <h2>Qo'llanma!</h2>
+            <p><h3>Xaritadan foydalanish uchun ma'muriy hududni tanlang</h3></p>
         </div>
 
         <div class="map-container">
@@ -153,22 +161,21 @@
     </div>
 
     <script>
+        // Ваш JavaScript-код остается без изменений
         document.addEventListener('DOMContentLoaded', function() {
             const mainMap = document.getElementById('main-map');
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const closeModal = document.querySelector('.close');
 
-            // --- ОБРАБОТКА КЛИКОВ ПО РЕГИОНАМ ---
             mainMap.querySelectorAll('path').forEach(path => {
                 path.addEventListener('click', () => {
-                    const regionId = path.id; // Например, 'uz-su'
+                    const regionId = path.id;
                     const imagePath = `https://raw.githubusercontent.com/OnlyOneXXI/Uzbekistan-flag/main/images/${regionId}.png`; 
                     
                     modal.style.display = "block";
                     modalImg.src = imagePath;
 
-                    // Обработка случая, если изображение не найдено
                     modalImg.onerror = () => {
                         alert(`Изображение для региона ${regionId} не найдено. Проверьте, что файл существует по пути: ${imagePath}`);
                         modal.style.display = "none";
@@ -176,13 +183,10 @@
                 });
             });
 
-            // --- ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА ---
-            // При клике на "крестик"
             closeModal.onclick = function() {
                 modal.style.display = "none";
             }
 
-            // При клике вне изображения
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
